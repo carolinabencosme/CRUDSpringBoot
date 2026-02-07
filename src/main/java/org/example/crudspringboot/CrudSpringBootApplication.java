@@ -61,7 +61,7 @@ public class CrudSpringBootApplication {
                 model.put("errors", errors);
                 model.put("action", "/estudiantes");
                 model.put("isEdit", false);
-                return new ModelAndView(model, "estudiantes_form.ftl");
+                return new ModelAndView(model, "estudiante_form.ftl");
             }
             estudianteRepository.insertar(estudiante);
             response.redirect("/estudiantes");
@@ -92,7 +92,7 @@ public class CrudSpringBootApplication {
             model.put("errors", Map.of());
             model.put("action", "/estudiantes/" + estudiante.get().getMatricula());
             model.put("isEdit", true);
-            return new ModelAndView(model, "estudiantes_form.ftl");
+            return new ModelAndView(model, "estudiante_form.ftl");
         }, freeMarkerEngine);
 
         post("/estudiantes/:id", (request, response) -> {
@@ -110,7 +110,7 @@ public class CrudSpringBootApplication {
                 model.put("errors", errors);
                 model.put("action", "/estudiantes/" + estudiante.getMatricula());
                 model.put("isEdit", true);
-                return new ModelAndView(model, "estudiantes_form.ftl");
+                return new ModelAndView(model, "estudiante_form.ftl");
             }
             estudianteRepository.actualizar(estudiante);
             response.redirect("/estudiantes/" + estudiante.getMatricula());
