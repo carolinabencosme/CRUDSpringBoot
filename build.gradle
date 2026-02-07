@@ -22,6 +22,7 @@ dependencies {
     implementation 'com.sparkjava:spark-template-freemarker:2.7.1'
     implementation 'org.freemarker:freemarker:2.3.33'
     testImplementation 'org.junit.jupiter:junit-jupiter:5.11.0'
+    runtimeOnly 'org.slf4j:slf4j-simple:1.7.36'
 }
 
 application {
