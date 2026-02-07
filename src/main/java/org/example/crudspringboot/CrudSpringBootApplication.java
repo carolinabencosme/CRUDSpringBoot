@@ -8,6 +8,7 @@ import static spark.Spark.staticFiles;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
+import freemarker.template.Configuration;
 import org.example.crudspringboot.estudiantes.Estudiante;
 import org.example.crudspringboot.estudiantes.EstudianteRepository;
 import spark.ModelAndView;
@@ -19,7 +20,9 @@ public class CrudSpringBootApplication {
         port(4567);
         staticFiles.location("/public");
 
-        FreeMarkerEngine freeMarkerEngine = new FreeMarkerEngine();
+        Configuration cfg = new Configuration(Configuration.VERSION_2_3_33);
+        cfg.setClassForTemplateLoading(CrudSpringBootApplication.class, "/templates");
+        FreeMarkerEngine freeMarkerEngine = new FreeMarkerEngine(cfg);
         EstudianteRepository estudianteRepository = new EstudianteRepository();
 
         get("/", (request, response) -> {
