@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>${title}</title>
-    <link rel="stylesheet" href="/styles.css">
-</head>
-<body>
-    <main>
-        <h1>${title}</h1>
-        <p>${message}</p>
-        <a href="/health">Verificar estado</a>
-    </main>
-</body>
-</html>
+<#import "layout.ftl" as layout>
+
+<@layout.page title=title>
+    <p>${message}</p>
+    <div class="actions">
+        <a class="button" href="/estudiantes">Ir al listado</a>
+        <a class="button secondary" href="/estudiantes/new">Registrar estudiante</a>
+    </div>
+</@layout.page>
